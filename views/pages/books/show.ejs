@@ -2,37 +2,49 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="https://www.freeiconspng.com/uploads/book-icon--icon-search-engine-6.png"
-        type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../styles/style.css">
-    <title>Book App</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="https://www.freeiconspng.com/uploads/book-icon--icon-search-engine-6.png"
+    type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="../styles/style.css" />
+  <title>Book App</title>
 </head>
 
 <body>
-    <main>
-        <section class="card">
-            <img src='<%=book.img %>' alt="Book Cover">
-            <h2>
-                <%= book.title %>
-            </h2>
-            <h3>
-                <%= book.author %>
-            </h3>
-            <p class="description">
-                <%= book.description %>
-            </p>
-            <p>
-                ISBN: <%= book.isbn %>
-            </p>
-            <p>
-                Bookshelf: <%= book.shelf %>
-            </p>
-        </section>
-    </main>
+  <main>
+    <section>
+      <img src="<%=book.img %>" alt="Book Cover" />
+      <h2>
+        <%= book.title %>
+      </h2>
+      <h3>
+        <%= book.author %>
+      </h3>
+      <p>
+        <%= book.description %>
+      </p>
+      <p>ISBN: <%= book.isbn %>
+      </p>
+      <p>Bookshelf: <%= book.shelf %>
+      </p>
+
+      <form action="/books/<%= book.id %>?_method=DELETE" method='POST'>
+        <button type="submit">Delete Book</button>
+      </form>
+      <form action="/books/<%= book.id %>?_method=PUT" method="POST">
+        <br>
+        <input id="img" type="text" name="img" value="<%= book.img %>" />
+        <input id="title" type="text" name="title" value="<%= book.title %>" />
+        <input id="author" type="text" name="author" value="<%= book.author %>" />
+        <input id="isbn" type="text" name="isbn" value="<%= book.isbn %>" />
+        <input id="shelf" type="text" name="shelf" value="<%= book.shelf %>" />
+        <textarea id="description" type="text" name="description"> <%= book.description %> </textarea>
+        <button type="submit">Edit</button>
+      </form>
+    </section>
+  </main>
 </body>
 
 </html>
