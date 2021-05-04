@@ -14,13 +14,24 @@
 
 <body>
     <main>
-        <h1>ERROR!!</h1>
-        <details>
-            <summary>You are facing an error, click here for more details</summary>
-            <p>Error status: <%= error.status %> <br>
-                    Error Message: <%= error.error %>
+        <section class="card">
+            <img src='<%=book.img %>' alt="Book Cover">
+            <h2>
+                <%= book.title %>
+            </h2>
+            <h3>
+                <%= book.author %>
+            </h3>
+            <p class="description">
+                <%= book.description %>
             </p>
-        </details>
+            <p>
+                ISBN: <%= book.isbn %>
+            </p>
+            <p>
+                Bookshelf: <%= book.shelf %>
+            </p>
+        </section>
     </main>
 </body>
 
