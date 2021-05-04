@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%- include('../../layout/css.ejs') %>
+  <title>Search</title>
+</head>
+
+<body>
+  <header>
+    <%- include('../../layout/menu.ejs') %>
+  </header>
+
+  <main>
+    <h1>Search by Title or Author</h1>
+
+    <form action="/searches" method="post">
+      <div>
+      <input class="in" id='textbox' type="text" name="search" placeholder="Book title/author">
+      </div>
+      <div class='form-inputs'>
+        <label name='property'>Title</label>
+        <input class="radio" type="radio" id="title" name='property' value="intitle">  
+      </div>
+      <div class='form-inputs'>
+        <label name='property'>Author</label>
+        <input class="radio" type="radio" id="author" name='property' value="inauthor">  
+      </div>
+      <input class="in" id="submit" type="submit" value='Search the Google Books API'>
+    </form>
+  </main>
+
+</body>
+
+</html>

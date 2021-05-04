@@ -1,0 +1,21 @@
+<nav>
+  <h2>Best Books</h2>
+
+  <ul id='menu'>
+    <li><a href="/">Home</a></li>
+    <li><a href="/searches/new">New Search</a></li>
+  </ul>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <img src="/img/men.jpg" /> </a>
+</nav>
+
+<script>
+  function myFunction() {
+    var x = document.getElementById("menu");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  }
+</script>

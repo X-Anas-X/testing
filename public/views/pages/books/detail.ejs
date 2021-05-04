@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%- include('../../layout/css.ejs') %>
+  <title>Books Details</title>
+</head>
+
+<body>
+  <header>
+    <%- include('../../layout/menu.ejs') %>
+  </header>
+
+  <main>
+    <section>
+      <% books.forEach((book) => { %>
+      <article class='book-results'>
+        <img src="<%= book.image_url %>" alt="<%= book.title %>" onerror="this.src=`https://i.imgur.com/J5LVHEL.jpg`;">
+        <h3><%= book.title %></h3>
+        <h4><%= book.author %></h4>
+        <p><%= book.description %></p>
+        <h5><%= book.isbn %></h5>
+        <h6>Bookshelf <%= book.bookshelf %></h6>
+
+        <div id='buttons'>
+          <form action="/books/delete/<%= book.id %>?_method=DELETE" method="POST">
+            <input type="hidden" name="id" value="<%= book.id %>">
+            <input class='buttons' type="submit" value="Delete Book">
+          </form>
+
+          <form action="/books/<%= book.id %>" method="POST">
+            <input type="hidden" name="id" value="<%= book.id %>">
+            <input class='buttons' type="submit" value="Update Details">
+          </form>
+        </div>
+
+      </article>
+      <% }); %>
+    </section>
+  </main>
+
+</body>
+
+</html>
